@@ -1,44 +1,65 @@
-# ESP32-CAM Automatic Number Plate Recognition (ANPR)
+# ESP32-CAM License Plate Recognition (LPR) System
 
-An ESP32-CAM–based automatic number plate recognition (ANPR) system using Wi-Fi connectivity for smart parking and vehicle access control.
+An embedded computer-vision system using the ESP32-CAM to capture vehicle images and perform license plate recognition. The system integrates a push-button trigger, OLED display feedback, and cloud-based image processing to extract and display license plate text.
 
-## Overview
-This project demonstrates a low-cost, embedded vehicle detection system built using an ESP32-CAM module.  
-The system captures vehicle images, transmits them over Wi-Fi, and performs license plate recognition to support automated parking and access-control applications.
-
-The implementation is based on a reference design and workflow from CircuitDigest, adapted and documented for educational and prototyping purposes.
+---
 
 ## Demo
-> (Optional – add later)
-- Live camera capture and plate recognition workflow
-- JPEG image output via ESP32-CAM
-- OLED display feedback (if enabled)
+The system operates in an idle state until a user presses the trigger button. Upon activation, the ESP32-CAM captures an image and transmits it for remote processing. The processed JPEG image is returned with the recognized license plate text overlaid on the original image.
 
-## System Features
-- ESP32-CAM image acquisition
-- Wi-Fi-based image transmission
-- Automated license plate recognition workflow
-- Low-cost embedded hardware solution
-- Portable and scalable system design
+---
 
-## Hardware Components
-- ESP32-CAM module
-- FTDI programmer (for flashing)
-- External power supply (5V)
-- Optional OLED display
-- Jumper wires and breadboard (for setup)
+## Inputs and Outputs
 
-## Software & Tools
-- Arduino IDE
-- ESP32 board support package
-- C/C++ (Arduino framework)
-- Wi-Fi communication libraries
+### Inputs
+- ESP32-CAM image sensor (vehicle image capture)
+- Push-button trigger (GPIO13)
+- Power input (5 V via FTDI USB-to-UART adapter)
+
+### Outputs
+- OLED display (SSD1306, I²C) showing system status and recognized license plate text
+- Processed JPEG image returned from remote processing with detected license plate text overlaid
+- Serial monitor output used for debugging, calibration, and system verification
+
+---
 
 ## Design Notes
-- The project follows a reference ANPR workflow provided by CircuitDigest.
-- Image processing and recognition are handled externally after image transmission.
-- Emphasis was placed on system integration, reliability, and response time rather than custom ML model development.
+- The ESP32-CAM handles image capture and data transmission, while license plate recognition is performed remotely.
+- GPIO14 and GPIO15 are used as custom I²C pins for the OLED display.
+- A physical push-button provides controlled image capture instead of continuous streaming.
+- System behavior was verified using serial output, OLED feedback, and returned image results.
 
-## References
-- CircuitDigest ANPR Project:  
-  https://circuitdigest.com/projects/license-plate-recognition-using-esp32-cam
+---
+
+## Images & Documentation
+
+This repository includes schematic documentation, physical wiring verification, and development artifacts demonstrating correct system design and functionality.
+
+### Circuit Design & Hardware
+- **LPR_Schematic (Fritzing).pdf**  
+  Breadboard schematic created using Fritzing, showing electrical connections between the ESP32-CAM, FTDI adapter, OLED display, and trigger button.
+
+- **LPR_Development_progression.png**  
+  Image documenting staged hardware development and wiring verification.
+
+- **LPR_Demo.png**  
+  Representative system demonstration image.
+
+---
+
+## Code
+- **LPR_code**  
+  Firmware implementing image capture, button handling, OLED communication, serial debugging, and data transmission for license plate recognition processing.
+
+---
+
+## External Reference Acknowledgment
+This project was developed independently with limited reference to CircuitDigest resources for initial ESP32-CAM setup guidance and code structure. The final system design, hardware integration, control logic, and documentation were independently implemented.
+
+CircuitDigest resources enabled cloud-based image processing, allowing captured images to be processed remotely and returned as JPEG files containing AI-generated license plate recognition results overlaid on the original image.
+
+---
+
+## Power Source
+- Primary Power Source: 5 V via FTDI USB-to-UART adapter
+- ESP32-CAM onboard regulation supplies required 3.3 V logic levels
