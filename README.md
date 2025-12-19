@@ -5,7 +5,10 @@ An embedded computer-vision system using the ESP32-CAM to capture vehicle images
 ---
 
 ## Demo
-The system operates in an idle state until a user presses the trigger button. Upon activation, the ESP32-CAM captures an image and transmits it for remote processing. The processed JPEG image is returned with the recognized license plate text overlaid on the original image.
+▶️ **Full system demonstration:** ESP32-CAM License Plate Recognition (LPR) System  
+https://youtu.be/9p-DTRr-KFo?si=irp0Q5tMMEhJN-Yl
+
+The video shows the system in its baseline idle state, followed by a user-triggered image capture via a push-button input. The ESP32-CAM captures an image and transmits it for remote processing, after which a processed JPEG image is returned with the recognized license plate text overlaid on the original image and displayed via system outputs.
 
 ---
 
