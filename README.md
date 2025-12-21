@@ -37,28 +37,35 @@ The video shows the system in its baseline idle state, followed by a user-trigge
 
 ## Images & Documentation
 
-This repository includes schematic documentation, physical wiring verification, and development artifacts demonstrating correct system design and functionality.
+This repository includes schematic documentation, system development flowchart and operational demonstrations to represent system design, implementation, and functionality of the License Plate Recognition (LPR) system.
 
-### Circuit Design & Hardware
-- **LPR_Schematic (Fritzing).pdf**  
-  Breadboard schematic created using Fritzing, showing electrical connections between the ESP32-CAM, FTDI adapter, OLED display, and trigger button.
+---
 
-- **LPR_Development_progression.png**  
-  Image documenting staged hardware development and wiring verification.
+## Circuit Design & System Architecture
 
-- **LPR_Demo.png**  
-  Representative system demonstration image.
+- `LPR_Schematic (Fritzing).pdf`  
+  Schematic diagram created using Fritzing, illustrating the electrical connections and system architecture of the ESP32-CAM–based License Plate Recognition system. This document serves as the primary circuit and hardware reference.
+
+---
+
+## System Development & Demonstration
+
+- `LPR_Development_progression.png`  
+  Visual documentation summarizing key development stages of the LPR system, including hardware setup, incremental testing, and system integration.
+
+- `LPR_Demo.png`  
+  Demonstration image illustrating the operational behavior of the LPR system during testing, including image capture and processing flow.
 
 ---
 
 ## Code
 - **LPR_code**  
-  Firmware implementing image capture, button handling, OLED communication, serial debugging, and data transmission for license plate recognition processing.
+  Code implementing image capture, button handling, OLED communication, serial debugging and data transmission for license plate recognition processing.
 
 ---
 
 ## External Reference Acknowledgment
-This project was developed independently with limited reference to CircuitDigest resources for initial ESP32-CAM setup guidance and code structure. The final system design, hardware integration, control logic, and documentation were independently implemented.
+This project was developed independently with limited reference to CircuitDigest resources for initial ESP32-CAM setup guidance. The final system design, hardware integration, control logic, and documentation were independently implemented.
 
 CircuitDigest resources enabled cloud-based image processing, allowing captured images to be processed remotely and returned as JPEG files containing AI-generated license plate recognition results overlaid on the original image.
 
